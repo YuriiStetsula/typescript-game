@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es6",
+    "sourceMap": true,
+    "diagnostics": true,
+    "noUnusedLocals": true
+  },
+   "include": [
+        "src/**/*"
+    ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
