@@ -1,10 +1,10 @@
 {
  interface IFighter {
-    name: string;
-    power: number;
-    health: number;
-    setDemage:(demage:number) => void;
-    hit: (enemy,point:number) => void;
+    name: string,
+    power: number,
+    health: number,
+    setDemage:(demage:number) => void,
+    hit: (enemy,point:number) => void
 }
 
 
@@ -38,9 +38,16 @@
 
 
   
+ interface Ifight {
+       player1:  Fighter | ImproveFighter,
+       player2: Fighter | ImproveFighter,
+       points : number[],
+       letsFight: () => void
+ }
 
 
-        class fight  {
+
+        class fight  implements Ifight {
             player1 : Fighter | ImproveFighter;
             player2 : Fighter | ImproveFighter;
             points  : number[]
@@ -51,12 +58,12 @@
                 this.points = points
             }
             
-            private   getRandom(min:number,max:number):number{
+            private  getRandom(min:number,max:number):number{
                 let rand = Math.floor(min + Math.random() * (max + 1 - min)) ;
                 return rand;
             }
 
-            letsFight(){
+            letsFight():void{
             console.log("% for doublehit(must be >=90%)");
              while(this.player1.health > 0 && this.player2.health > 0){
                let  indexForP1:number    = this.getRandom(0,this.points.length-1);
